@@ -6,8 +6,6 @@ public class Patrol : MonoBehaviour
 {
     public float moveSpeed;
 
-    bool isMovingRight = true;
-
     bool isMoving = true;
 
     private Vector3 startingPos;
@@ -26,12 +24,10 @@ public class Patrol : MonoBehaviour
         if(transform.position.x - startingPos.x >= maxRightDistance)
         {
             transform.eulerAngles = new Vector3(0, -180, 0);
-            isMovingRight = false;
         }
         else if(transform.position.x - startingPos.x <= -maxLeftDistance)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
-            isMovingRight = true;
         }
 
         if(isMoving)
