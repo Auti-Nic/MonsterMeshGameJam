@@ -714,7 +714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &995685122
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1202,7 +1202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1377240496476148, guid: 50936cccdb69523458c1b42052ebafff, type: 3}
       propertyPath: m_Name
-      value: DrawCharacter
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1377240496476148, guid: 50936cccdb69523458c1b42052ebafff, type: 3}
       propertyPath: m_Layer
@@ -1404,7 +1404,7 @@ GameObject:
   - component: {fileID: 1769689430}
   - component: {fileID: 1769689429}
   m_Layer: 5
-  m_Name: DetectionBar (1)
+  m_Name: BackgroundBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
