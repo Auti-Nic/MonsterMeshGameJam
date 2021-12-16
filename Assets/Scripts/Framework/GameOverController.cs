@@ -14,6 +14,9 @@ public class GameOverController : MonoBehaviour
     {
         switch (GameController.instance.organsAcquired)
         {
+            case -1:
+                Endings.transform.Find("DeadEnding").gameObject.SetActive(true);
+                break;
             case 0:
                 Endings.transform.Find("DeadEnding").gameObject.SetActive(true);
                 break;

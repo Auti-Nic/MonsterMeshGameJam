@@ -122,6 +122,7 @@ public class PlayerDetection : MonoBehaviour
     void OnDetectionFull()
     {
         Debug.LogWarning("Game Over");
+        GameController.instance.PlayerDetected();
     }
 
 

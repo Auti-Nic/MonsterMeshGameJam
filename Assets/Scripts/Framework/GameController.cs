@@ -66,5 +66,12 @@ public class GameController : MonoBehaviour
     {
         currentState = GameState.End;
         GameController.instance.LoadLevel("GameOver");
+        organsAcquired = -1;
+    }
+    public void PlayerDetected()
+    {
+        currentState = GameState.End;
+        GameController.instance.LoadLevel("GameOver");
+        organsAcquired = -1;
     }
 }
