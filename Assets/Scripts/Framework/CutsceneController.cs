@@ -44,7 +44,7 @@ public class CutsceneController : MonoBehaviour
     public void BeginCutscene(int inCutsceneNumber)
     {
         if (cutSceneHolder == null) GameObject.Find("CutsceneHolder");
-        currentCutscene = inCutsceneNumber-1;
+        currentCutscene = inCutsceneNumber;
         cutSceneHolder.transform.GetChild(currentCutscene).gameObject.SetActive(true);
         currentCutsceneTextHolder = cutSceneHolder.transform.GetChild(currentCutscene).Find("Canvas").Find("Text").gameObject;
         if (inCutsceneNumber == cutSceneHolder.transform.childCount) //Last cutscene
@@ -59,7 +59,27 @@ public class CutsceneController : MonoBehaviour
     {
         cutSceneHolder.transform.GetChild(currentCutscene).gameObject.SetActive(false);
         continueScreenHolder.SetActive(true);
-        
+        if (currentCutscene + 1 == cutSceneHolder.transform.childCount)
+            ShowButtons("You've done enough...", "You've done all you can.", 1);
+        else if (currentCutscene == 0) ShowButtons("It's only natural to pass away", "Save your dog", 0);
+        else if (currentCutscene == 1) ShowButtons("He'll live, and that's all that matters", "He's still in danger, and that's all that matters", 0);
+        else ShowButtons("He's still in danger, we can't stop now", "We need to make sure he's healthy", 2);
+
+    }
+    void ShowButtons(string gameOverText, string continueText, int disableButtons)
+    {
+        Transform continueButton = continueScreenHolder.transform.Find("Continue");
+        Transform gameOverButton = continueScreenHolder.transform.Find("Finish");
+        continueButton.GetComponentInChildren<Text>().text = continueText;
+        gameOverButton.GetComponentInChildren<Text>().text = gameOverText;
+        if (disableButtons == 1) continueButton.GetComponent<Button>().interactable = false;
+        else if (disableButtons == 2) gameOverButton.GetComponent<Button>().interactable = false;
+        else if (disableButtons == 0)
+        {
+            gameOverButton.GetComponent<Button>().interactable = true;
+            continueButton.GetComponent<Button>().interactable = true;
+        }
+        continueScreenHolder.SetActive(true);
     }
     public void ContinueGame()
     {
