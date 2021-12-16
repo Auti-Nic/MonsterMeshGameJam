@@ -1589,6 +1589,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1025145325119744, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
   m_PrefabInstance: {fileID: 296927483}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &519420031 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20290961051787748, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
+  m_PrefabInstance: {fileID: 296927483}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &573815214
 GameObject:
   m_ObjectHideFlags: 0
@@ -4850,6 +4855,7 @@ GameObject:
   - component: {fileID: 1820196050}
   - component: {fileID: 1820196049}
   - component: {fileID: 1820196052}
+  - component: {fileID: 1820196053}
   m_Layer: 0
   m_Name: FlashLight
   m_TagString: Untagged
@@ -4869,9 +4875,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec7e643138428743b60bdead151678d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   fov: 90
   raycont: 50
-  angleVisable: 90
   viewDistance: 3
 --- !u!33 &1820196050
 MeshFilter:
@@ -4936,6 +4944,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1820196053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820196048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d889ad1b75a698f43bcb8d38cd319c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
 --- !u!1 &1827387510
 GameObject:
   m_ObjectHideFlags: 0
