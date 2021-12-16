@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public int organsAcquired;
     enum GameState { MainMenu, Level, Cutscene, End};
-    public float timeLeftInMission;
+    public float timeLeftInMission = 120;
     float timeForLevel = 120; //Time to complete level
     GameState currentState = GameState.MainMenu;
 
