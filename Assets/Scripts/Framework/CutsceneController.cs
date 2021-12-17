@@ -87,6 +87,6 @@ public class CutsceneController : MonoBehaviour
     }
     public void FinishGame()
     {
-        GameController.instance.LoadLevel("GameOver");
+        GameController.instance.FinishGame();
     }    
 }

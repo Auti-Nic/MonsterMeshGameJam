@@ -7,10 +7,10 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
     public int organsAcquired;
-    enum GameState { MainMenu, Level, Cutscene, End};
+    public enum GameState { MainMenu, Level, Cutscene, End};
     public float timeLeftInMission = 120;
     float timeForLevel = 120; //Time to complete level
-    GameState currentState = GameState.MainMenu;
+    public GameState currentState = GameState.MainMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -64,14 +64,17 @@ public class GameController : MonoBehaviour
     }
     public void TimeRanOut()
     {
-        currentState = GameState.End;
-        GameController.instance.LoadLevel("GameOver");
         organsAcquired = -1;
+        FinishGame();
     }
     public void PlayerDetected()
     {
+        organsAcquired = -1;
+        FinishGame();
+    }
+    public void FinishGame()
+    {
         currentState = GameState.End;
         GameController.instance.LoadLevel("GameOver");
-        organsAcquired = -1;
     }
 }

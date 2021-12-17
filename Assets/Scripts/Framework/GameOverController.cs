@@ -34,4 +34,9 @@ public class GameOverController : MonoBehaviour
     {
         
     }
+
+    public void ReturnToMenu()
+    {
+        GameController.instance.LoadLevel("MainMenu");
+    }
 }
