@@ -16,7 +16,7 @@ public class AimPoint : MonoBehaviour
         // Creates a vector going from the position of the player to the position of the mouse (in 2D space), and normalizes it
         Vector2 vector = (mousePos - playerPos);
 
-        this.gameObject.GetComponent<FieldOfView>().SetAimDirection(vector);
+        this.gameObject.GetComponent<FOV>().SetAimDirection(vector);
         
     }
 }
