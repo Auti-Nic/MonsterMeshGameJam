@@ -62,7 +62,7 @@ public class CutsceneController : MonoBehaviour
         if (currentCutscene + 1 == cutSceneHolder.transform.childCount)
             ShowButtons("You've done enough...", "You've done all you can.", 1);
         else if (currentCutscene == 0) ShowButtons("It's only natural to pass away", "Save your dog", 0);
-        else if (currentCutscene == 1) ShowButtons("He'll live, and that's all that matters", "He's still in danger, and that's all that matters", 0);
+        else if (currentCutscene == 1) ShowButtons("He'll live, that's all that matters", "He's still in danger, that's all that matters", 0);
         else ShowButtons("He's still in danger, we can't stop now", "We need to make sure he's healthy", 2);
 
     }
