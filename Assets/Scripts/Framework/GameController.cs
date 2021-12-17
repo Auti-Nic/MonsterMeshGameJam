@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
     {
         timeLeftInMission = timeForLevel; //2 minutes
         currentState = GameState.Level;
+        Cursor.lockState = CursorLockMode.Locked;
         LoadLevel(organsAcquired);
     }
     public void TimeRanOut()

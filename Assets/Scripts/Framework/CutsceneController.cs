@@ -68,6 +68,7 @@ public class CutsceneController : MonoBehaviour
     }
     void ShowButtons(string gameOverText, string continueText, int disableButtons)
     {
+        Cursor.lockState = CursorLockMode.None;
         Transform continueButton = continueScreenHolder.transform.Find("Continue");
         Transform gameOverButton = continueScreenHolder.transform.Find("Finish");
         continueButton.GetComponentInChildren<Text>().text = continueText;

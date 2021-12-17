@@ -12,6 +12,7 @@ public class GameOverController : MonoBehaviour
     }
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         switch (GameController.instance.organsAcquired)
         {
             case -1:
