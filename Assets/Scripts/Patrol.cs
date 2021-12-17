@@ -14,13 +14,19 @@ public class Patrol : MonoBehaviour
     public float maxRightDistance;
     public float maxLeftDistance;
 
+    PlayerMovement pm;
+
     private void Start()
     {
+        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         startingPos = transform.position;
     }
 
     private void Update()
     {
+        if (pm.isHidden)
+            isMoving = true;
+
         if(transform.position.x - startingPos.x >= maxRightDistance)
         {
             transform.eulerAngles = new Vector3(0, -180, 0);
@@ -39,6 +45,7 @@ public class Patrol : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            if(!pm.isHidden)
             isMoving = false;
         }
     }

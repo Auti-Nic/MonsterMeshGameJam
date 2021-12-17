@@ -30,11 +30,14 @@ public class PlayerDetection : MonoBehaviour
     public Image detectionBarImg;
     bool isLerpingDetection = false;
     private float timeScale = 0;
-    private float lerpSpeed = 2.5f;
+    private float lerpSpeed = 5f;
     private float targetDetectionLevel;
+
+    PlayerMovement pm;
 
     private void Start()
     {
+        pm = gameObject.GetComponent<PlayerMovement>();
         detectors = new List<Detector>();
         lastDetectionGain = 0;
         currentDetectionLevel = 0;
@@ -42,7 +45,7 @@ public class PlayerDetection : MonoBehaviour
 
     private void Update()
     {
-        if (detectors.Count != 0)
+        if (detectors.Count != 0 && !pm.isHidden)
             GainDetection();
         else
             LoseDetection();
@@ -56,7 +59,7 @@ public class PlayerDetection : MonoBehaviour
 
     void GainDetection()
     {
-        if(Time.time > detectionGainRate + lastDetectionGain)
+        if (Time.time > detectionGainRate + lastDetectionGain)
         {
             lastDetectionGain = Time.time;
             currentDetectionLevel += detectors.Count * detectionGainAmount;
@@ -96,7 +99,7 @@ public class PlayerDetection : MonoBehaviour
 
     void UpdateDetectionBar()
     {
-        targetDetectionLevel = currentDetectionLevel/100;
+        targetDetectionLevel = currentDetectionLevel/maximumDetectionLevel;
         timeScale = 0;
         /* if (!isLerpingDetection)
              StartCoroutine("LerpDetection"); */
