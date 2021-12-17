@@ -10,13 +10,21 @@ public class HidingCabinet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!pm.isHidden)
-        canHide = true;
+        if (collision.tag == "Player" && !pm.isHidden)
+        {
+            canHide = true;
+        }
+        
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        canHide = false;
+        if (collision.tag == "Player")
+        {
+            canHide = false;
+        }
+        
     }
 
     private void Start()
